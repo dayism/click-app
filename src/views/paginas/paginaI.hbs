@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram</title>
+    <link rel="shortcut icon" href="#" />
+<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css" rel="stylesheet"/>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js"></script>
+    
+</head>
+
+<style>
+ 
+html,body{
+    margin: 0;
+}
+* {
+box-sizing: border-box;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    background: white;
+    color:white;
+    
+}
+
+/* Header/Blog Title */
+.header {
+padding: 1px;
+text-align: left;
+background: #846707;
+}
+
+.header h1 {
+font-size: 450%;
+}
+
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+float: left;
+width: 65%;
+
+
+}
+
+/* Right column */
+.rightcolumn {
+float: left;
+width: 35%;
+
+padding-left: 30px;
+
+}
+/* Add a card effect for articles */
+.card {
+
+padding: 5px 20px;
+
+}
+
+                /* Para tener un ancho máximo debemos de establecer el width del DIV.delimitador */
+                .delimitador{
+                width:95%;
+                margin:auto;
+                }
+                /* El contenedor con el padding-top crea el tamaño del vídeo */
+                .contenedor{
+                height:0px;
+                width:100%;
+                max-width:95%; /* Así establecemos el ancho máximo (si lo queremos) */
+                padding-top:75%; /* Relación: 16/9 = 56.25% */
+                position:relative;
+                }
+                /* El iframe se adapta al tamaño del contenedor */
+                iframe{
+                position:absolute;
+                height:100%;
+                width:100%;
+                top:0px;
+                left:0px;
+                }
+    
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+    
+            ul{    
+                color: white;
+                
+            }
+            
+            ul li a{
+                color:yellow;
+                text-decoration: none;
+                text-shadow:  yellow;
+                font-size: 130%;
+                
+            }
+        
+            ul li a:hover{
+                
+                border-bottom: 1px solid blue;
+                color: blue;
+                
+              
+            }
+            p {
+                line-height: 1.5em;
+                font-size: 120%;
+            }
+
+            h2 {
+                font-size: 170%;
+            }
+
+            h3 {
+                font-size: 150%;
+            }
+            label{
+                font-size: 150%;
+                font-weight: bold;
+                padding-left: 65%;
+            }
+          
+            .header-form{
+                width: 100%;
+                height: 60px;
+                background: hsl(0, 69%, 61%);
+                padding: 10px 10px 20px 20px;
+              
+               
+              
+                
+                
+            }
+            .label-search{
+                
+                padding: 10px 10px 20px 800px;
+                
+            }
+
+         
+
+
+#input-search{
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    text-indent: 10px;
+    margin-left: 30px;
+    
+    
+}
+
+.content-search{
+    width: 300px;
+    max-height: 100px;
+    height: auto;
+    top: 40%;
+    background: blue;
+    margin-left: 920px;
+    overflow-y: visible;
+    overflow-x: hidden;
+    display: none;
+    
+}
+td{
+    width: 300px;
+}
+
+.content-table{
+    width: 300px;
+    max-height: 100px;
+    height: auto;
+    background: yellowgreen;
+    margin-left: 10px;
+    overflow-y: visible;
+    overflow-x: hidden;
+    
+}
+
+.content-table table{
+    width: 100%;
+}
+
+tbody tr td a{
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+tbody tr td a:hover{
+    
+    
+    background: red;
+}
+
+#table_length, #table_filter, #table_info, #table_paginate{
+    display: none;
+}
+            
+@media all and (max-width: 1200px) {
+    .label-search{
+        display: inline-block;
+        padding:0px 6px;
+        margin:0px 0px 0px 510px;
+        
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .content-search{
+        display: inline-block;
+        margin-left: 635px;
+        
+    }
+}
+
+
+
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+    }
+    .boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+      font-size: 20px;
+    color: #ffffff;
+    background-color: black;
+    border-radius: 6px;
+    border: 2px solid black;
+  }
+  
+</style>
+<body>
+  <div  class="header">
+    <h1 ><b> ¡¡A UN CLICK!!</a></b></h1>
+  </div>
+    <br></br>
+
+      <div class="row" style="background: black;">
+
+        <div class="header-form">
+          <label class="label-search" style=" color: black;" >Buscar 
+       <input type="search" id="input-search" placeholder="Buscar aqui">
+   </label>
+       
+       <div class="content-search">
+           
+          
+               <table id="table">
+                   <thead>
+                       <tr>
+                           <td></td>
+                       </tr>
+                   </thead>
+                   
+                   <tbody>
+                    <tr>
+                      <td><a href="/">Inicio</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="#oneclic">Beneficios</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="#paginas">Sitios Web</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaW">Whatsapp Web</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaF">Facebook</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaI">Instagram</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaO">Outlook</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="youtube.html">YouTube</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaN">Netflix</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaIe">IESS</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="elcomercio.html">El Comercio</a></td>
+                  </tr>
+                  
+                       
+                   </tbody>
+               </table>
+           
+       </div>
+   </div>
+        
+
+        <div class="leftcolumn">
+          <div class="card">
+            <h2><a href="#paginas" style="color: white; text-decoration: none;">Página de destino para las personas de tercera edad </a></h2> 
+            <p>El acceso a las Tecnologías de Información y Comunicación  <a href="https://es.wikipedia.org/wiki/Tecnolog%C3%ADas_de_la_informaci%C3%B3n_y_la_comunicaci%C3%B3n" style="color: yellow;" >(TIC)</a> es una parte esencial para el desarrollo de las habilidades y destrezas de las personas de la tercera edad. En el Ecuador según el <a href="https://www.ecuadorencifras.gob.ec/institucional/home/" style="color: yellow;">INEC</a> en el año 2017 el 27,2% de adultos mayores estaba conectadas a Internet, este porcentaje en los últimos años ha ido en aumento. Lo importante para los adultos mayores es mantener la autonomía e independencia para sus necesidades de nutrición, vida familiar y movimientos, y para las subjetivas del pensamiento y los afectos, gracias al manejo adecuado de las tecnologías, en particular Internet y la Web.</p>
+            <p>A un clic es un sitio web que facilitará a la búsqueda de páginas esenciales en la vida diaria de las personas, teniendo a la mano una breve descripción del sitio web y permitiéndole ingresar de manera inmediata.</p>
+          </div>
+          <div id="oneclic" class="card">
+            <h2 style="text-align: left">Beneficios</h2>
+            <p>Los dispositivos digitales e internet ofrecen la oportunidad de interactuar con la sociedad en todas sus dimensiones: económicas, políticas y sociales. Integrar a los adultos mayores mediante el uso de la tecnología debe ser de vital importancia y las personas a su alrededor juegan un rol importante.</p>
+          </div>
+         
+          <div class="row">
+            <div class="leftcolumn">
+              <div id="paginas" class="card">
+                <main id="container">
+                    <h2>Sitios Web</h2>
+                    <div id="main-div"><h3>1. CHAT</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaW">WhatsApp Web</a></li>
+                    </ul>
+                    
+                    <!-- <p><a href="http://gplsi.dlsi.ua.es/proyectos/examinador/test.php?id=23&lang=es">Test sobre HTML</a></p> -->
+                    
+                    
+                    <h3>2. Redes Sociales</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaF">Facebook</a></li>
+                    <li><a href="/paginas/paginaI">Instagram</a></li>
+                    </ul>
+                    
+                    <!-- <p><a href="http://gplsi.dlsi.ua.es/proyectos/examinador/test.php?id=14&lang=es">Test sobre CSS</a></p> -->
+                    
+                    
+                    <h3>3. Comunicación</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaO">Outlook</a></li>
+                    </ul>
+            
+                    <h3>4. Entretenimiento</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaY">Youtube</a></li>
+                    <li><a href="/paginas/paginaN">Netflix</a></li>
+                    </ul>
+            
+                    <h3>5. Salud</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaIe">IESS</a></li>
+                    </ul>
+            
+                    <h3>6. Información</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaC">El Comercio</a></li>
+                    </ul>
+       
+                </div></main>
+              </div>
+            </div>
+            <div class="rightcolumn">
+              <div class="card">
+                <table width="700" height="500" cellspacing="1" cellpadding="3" border="0" bgcolor="#FFFFFF">
+                        <tr>
+                          <td>
+                            
+                            <font color="#000000" face="arial, verdana, helvetica">
+                          <img align="left" src="https://www.infotechnology.com/__export/1463068856691/sites/revistait/img/internet/2016/05/12/nuevo-logo-instagram-android.jpg_1917179645.jpg" width="200" height="300" alt="Imagen de Ins">
+                          
+                         {{#each paginaI}}
+                                 <p>{{ category }}</p>
+                                <p> {{ name }}</p>
+                                <p>{{ description }} </p>
+                         {{/each}}
+                         <center>
+                          
+                         <button class="boton_personalizado"> <a class="boton_personalizado" href="https://www.instagram.com/">Visitar Instagram </a></button>
+                          </font>
+                          
+                          </td>
+                        </tr>
+                        </table>
+   
+                
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="rightcolumn">
+            <br></br>
+            <br></br>
+      <br></br>
+       
+            <div class="delimitador">
+                <div class="contenedor">
+                <iframe src="https://www.youtube.com/embed/WMEk-bua9vA"></iframe>
+                
+                </div>
+            </div>
+          </div>
+    </div>
+    <script type="text/javascript" > 
+
+            var buscador = $("#datatable").DataTable();
+
+            $("#input-search").keyup(function(){
+                
+                buscador.search($(this).val()).draw();
+                
+                if ($("#input-search").val() == ""){
+                    $(".content-search").fadeOut(300);
+                }else{
+                    $(".content-search").fadeIn(300);
+                }
+            })
+    </script>
+    <footer>
+      <p style="color: black; text-align: center;">©Copyright Escuela Politécnica Nacional 2020 </p>
+  </footer>
+       
+</body>
+</html>

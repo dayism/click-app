@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Outlook</title>
+     
+<link rel="shortcut icon" href="#" />
+<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css" rel="stylesheet"/>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js"></script>
+    
+</head>
+
+<style>
+
+html,body{
+    margin: 0;
+}
+* {
+box-sizing: border-box;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    background: white;
+    color:white;
+    
+}
+
+/* Header/Blog Title */
+.header {
+padding: 1px;
+text-align: left;
+background: #846707;
+}
+
+.header h1 {
+font-size: 450%;
+}
+
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+float: left;
+width: 65%;
+
+
+}
+
+/* Right column */
+.rightcolumn {
+float: left;
+width: 35%;
+
+padding-left: 30px;
+
+}
+/* Add a card effect for articles */
+.card {
+
+padding: 5px 20px;
+
+}
+
+                /* Para tener un ancho máximo debemos de establecer el width del DIV.delimitador */
+                .delimitador{
+                width:95%;
+                margin:auto;
+                }
+                /* El contenedor con el padding-top crea el tamaño del vídeo */
+                .contenedor{
+                height:0px;
+                width:100%;
+                max-width:95%; /* Así establecemos el ancho máximo (si lo queremos) */
+                padding-top:75%; /* Relación: 16/9 = 56.25% */
+                position:relative;
+                }
+                /* El iframe se adapta al tamaño del contenedor */
+                iframe{
+                position:absolute;
+                height:100%;
+                width:100%;
+                top:0px;
+                left:0px;
+                }
+    
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+    
+            ul{    
+                color: white;
+                
+            }
+            
+            ul li a{
+                color:yellow;
+                text-decoration: none;
+                text-shadow:  yellow;
+                font-size: 130%;
+                
+            }
+        
+            ul li a:hover{
+                
+                border-bottom: 1px solid blue;
+                color: blue;
+                
+              
+            }
+            p {
+                line-height: 1.5em;
+                font-size: 120%;
+            }
+
+            h2 {
+                font-size: 170%;
+            }
+
+            h3 {
+                font-size: 150%;
+            }
+            label{
+                font-size: 150%;
+                font-weight: bold;
+                padding-left: 65%;
+            }
+          
+            .header-form{
+                width: 100%;
+                height: 60px;
+                background: hsl(0, 69%, 61%);
+                padding: 10px 10px 20px 20px;
+              
+               
+              
+                
+                
+            }
+            .label-search{
+                
+                padding: 10px 10px 20px 800px;
+                
+            }
+
+         
+
+
+#input-search{
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    text-indent: 10px;
+    margin-left: 30px;
+    
+    
+}
+
+.content-search{
+    width: 300px;
+    max-height: 100px;
+    height: auto;
+    top: 40%;
+    background: blue;
+    margin-left: 920px;
+    overflow-y: visible;
+    overflow-x: hidden;
+    display: none;
+    
+}
+td{
+    width: 300px;
+}
+
+.content-table{
+    width: 300px;
+    max-height: 100px;
+    height: auto;
+    background: yellowgreen;
+    margin-left: 10px;
+    overflow-y: visible;
+    overflow-x: hidden;
+    
+}
+
+.content-table table{
+    width: 100%;
+}
+
+tbody tr td a{
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+tbody tr td a:hover{
+    
+    
+    background: red;
+}
+
+#table_length, #table_filter, #table_info, #table_paginate{
+    display: none;
+}
+            
+@media all and (max-width: 1200px) {
+    .label-search{
+        display: inline-block;
+        padding:0px 6px;
+        margin:0px 0px 0px 510px;
+        
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .content-search{
+        display: inline-block;
+        margin-left: 635px;
+        
+    }
+}
+
+
+
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+    }
+.boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+      font-size: 20px;
+    color: #ffffff;
+    background-color: black;
+    border-radius: 6px;
+    border: 2px solid black;
+  }
+
+</style>
+<body>
+  <div  class="header">
+    <h1 ><b> ¡¡A UN CLICK!!</a></b></h1>
+  </div>
+    <br></br>
+
+      <div class="row" style="background: black;">
+
+        <div class="header-form">
+          <label class="label-search" style=" color: black;" >Buscar 
+       <input type="search" id="input-search" placeholder="Buscar aqui">
+   </label>
+       
+       <div class="content-search">
+           
+          
+               <table id="table">
+                   <thead>
+                       <tr>
+                           <td></td>
+                       </tr>
+                   </thead>
+                   
+                   <tbody>
+                    <tr>
+                      <td><a href="/">Inicio</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="#oneclic">Beneficios</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="#paginas">Sitios Web</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaW">WhatsApp Web</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaF">Facebook</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaI">Instagram</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaO">Outlook</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaY">YouTube</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaN">Netflix</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaIe">IESS</a></td>
+                  </tr>
+                  
+                  <tr>
+                      <td><a href="/paginas/paginaC">El Comercio</a></td>
+                  </tr>
+                  
+                       
+                   </tbody>
+               </table>
+           
+       </div>
+   </div>
+        
+
+        <div class="leftcolumn">
+          <div class="card">
+            <h2><a href="#paginas" style="color: white; text-decoration: none;">Página de destino para las personas de tercera edad </a></h2> 
+            <p>El acceso a las Tecnologías de Información y Comunicación  <a href="https://es.wikipedia.org/wiki/Tecnolog%C3%ADas_de_la_informaci%C3%B3n_y_la_comunicaci%C3%B3n" style="color: yellow;" >(TIC)</a> es una parte esencial para el desarrollo de las habilidades y destrezas de las personas de la tercera edad. En el Ecuador según el <a href="https://www.ecuadorencifras.gob.ec/institucional/home/" style="color: yellow;">INEC</a> en el año 2017 el 27,2% de adultos mayores estaba conectadas a Internet, este porcentaje en los últimos años ha ido en aumento. Lo importante para los adultos mayores es mantener la autonomía e independencia para sus necesidades de nutrición, vida familiar y movimientos, y para las subjetivas del pensamiento y los afectos, gracias al manejo adecuado de las tecnologías, en particular Internet y la Web.</p>
+            <p>A un clic es un sitio web que facilitará a la búsqueda de páginas esenciales en la vida diaria de las personas, teniendo a la mano una breve descripción del sitio web y permitiéndole ingresar de manera inmediata.</p>
+          </div>
+          <div id="oneclic" class="card">
+            <h2 style="text-align: left">Beneficios</h2>
+            <p>Los dispositivos digitales e internet ofrecen la oportunidad de interactuar con la sociedad en todas sus dimensiones: económicas, políticas y sociales. Integrar a los adultos mayores mediante el uso de la tecnología debe ser de vital importancia y las personas a su alrededor juegan un rol importante.</p>
+          </div>
+         
+          <div class="row">
+            <div class="leftcolumn">
+              <div id="paginas" class="card">
+                <main id="container">
+                    <h2>Sitios Web</h2>
+                    <div id="main-div"><h3>1. CHAT</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaW">WhatsApp Web</a></li>
+                    </ul>
+                    
+                    <!-- <p><a href="http://gplsi.dlsi.ua.es/proyectos/examinador/test.php?id=23&lang=es">Test sobre HTML</a></p> -->
+                    
+                    
+                    <h3>2. Redes Sociales</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaF">Facebook</a></li>
+                    <li><a href="/paginas/paginaI">Instagram</a></li>
+                    </ul>
+                    
+                    <!-- <p><a href="http://gplsi.dlsi.ua.es/proyectos/examinador/test.php?id=14&lang=es">Test sobre CSS</a></p> -->
+                    
+                    
+                    <h3>3. Comunicación</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaO">Outlook</a></li>
+                    </ul>
+            
+                    <h3>4. Entretenimiento</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaY">YouTube</a></li>
+                    <li><a href="/paginas/paginaN">Netflix</a></li>
+                    </ul>
+            
+                    <h3>5. Salud</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaIe">IESS</a></li>
+                    </ul>
+            
+                    <h3>6. Información</h3>
+                    
+                    <ul>
+                    <li><a href="/paginas/paginaC">El Comercio</a></li>
+                    </ul>
+       
+                </div></main>
+              </div>
+            </div>
+            <div class="rightcolumn">
+              <div class="card">
+                <table width="700" height="500" cellspacing="1" cellpadding="3" border="0" bgcolor="#FFFFFF">
+                        <tr>
+                          <td>
+                            
+                            <font color="#000000" face="arial, verdana, helvetica">
+
+                           <img align="left" src="data:image/jpeg;base64,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" width="200" height="350" alt="Imagen de Outlook">
+                       
+                         {{#each paginaO}}
+                                 <p>{{ category }}</p>
+                                <p> {{ name }}</p>
+                                <p>{{ description }} </p>
+                         {{/each}}
+                         <center>
+                          
+                        <button class="boton_personalizado"><a class="boton_personalizado" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1602105342&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3de19b3154-122c-fc32-b53a-145937337d77&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015">Visitar Outlook</a>
+                          </font>
+                          </center>
+                          </td>
+                        </tr>
+                        </table>
+   
+                
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="rightcolumn">
+            <br></br>
+            <br></br>
+      <br></br>
+       
+            <div class="delimitador">
+                <div class="contenedor">
+                <iframe src="https://www.youtube.com/embed/WMEk-bua9vA"></iframe>
+                
+                </div>
+            </div>
+          </div>
+    </div>
+    <script type="text/javascript" > 
+
+            var buscador = $("#datatable").DataTable();
+
+            $("#input-search").keyup(function(){
+                
+                buscador.search($(this).val()).draw();
+                
+                if ($("#input-search").val() == ""){
+                    $(".content-search").fadeOut(300);
+                }else{
+                    $(".content-search").fadeIn(300);
+                }
+            })
+    </script>
+    <footer>
+      <p style="color: black; text-align: center;">©Copyright Escuela Politécnica Nacional 2020 </p>
+  </footer>
+       
+</body>
+</html>
