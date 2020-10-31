@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const config = require("./config");
 
-const MONGODB_URI = `mongodb://${config.MONGODB_HOST}/${config.MONGODB_DATABASE}`;
+const MONGODB_URI = `mongoexport --uri mongodb+srv://daya:1234@cluster0.ruuoj.mongodb.net/paginas-app`;
 
 mongoose
   .connect(MONGODB_URI, {
