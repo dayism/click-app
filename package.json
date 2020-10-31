@@ -2,8 +2,7 @@
   "name": "click-app",
   "version": "1.0.0",
   "description": "Pagina de Enlace",
-  "main": "index.js",
-  "dependencies": {
+    "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
