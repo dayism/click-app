@@ -25,7 +25,7 @@ app.use( methodOverride('method'));
 // routes
 
 app.use(require('./routes/paginasWeb.routes'));
-//app.use(require('./routes/index.routes'));
+app.use(require('./routes/index.routes'));
 
 
 module.exports = app;
