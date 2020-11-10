@@ -1,15 +1,7 @@
-  
+
 const mongoose = require("mongoose");
-const config = require("./config");
+const url =  "mongodb+srv://daya:1234@cluster0.ruuoj.mongodb.net/paginas-app?retryWrites=true&w=majority" ;
 
-const MONGODB_URI = `mongoexport --uri mongodb+srv://daya:1234@cluster0.ruuoj.mongodb.net/paginas-app`;
-
-mongoose
-  .connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  })
-  .then((db) => console.log("Mongodb is connected to", db.connection.host))
-  .catch((err) => console.error(err));
+mongoose.connect(url, { useNewUrlParser: true , useUnifiedTopology: true })
+.then(() => console.log("Mongodb is connected to"))
+.catch((err) => console.error(err))
